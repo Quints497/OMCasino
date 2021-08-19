@@ -10,6 +10,10 @@ A Casino created in Python 3.7 with only card based casino games, such as, Black
 
 This will contain a text file with the account information for each user and also the account class to access the information
 
+#### Characters
+
+This will contain the classes for the player and the dealers
+
 #### Decks
 
 This will contain classes for each deck of cards that will be used in the casino.
