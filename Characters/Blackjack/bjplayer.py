@@ -19,9 +19,9 @@ class BjPlayer(Player):
         The users password
     balance : float
         The users balance
-    cards : list
-        The users cards
+    hand : list
+        The users hand
     """
     def __init__(self, username, password, balance):
         super(BjPlayer, self).__init__(username=username, password=password, balance=balance)
-        self.cards = []
+        self.hand = []
