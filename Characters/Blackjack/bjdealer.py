@@ -13,10 +13,10 @@ class BjDealer:
     ----------
     username : str
         The dealers name - "Dealer"
-    cards : list
-        The dealers cards
+    hand : list
+        The dealers hand
     """
     def __init__(self):
         self.username = "Dealer"
-        self.cards = []
+        self.hand = []
 
