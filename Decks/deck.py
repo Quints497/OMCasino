@@ -42,7 +42,15 @@ class Deck:
         # loop through the suit and values
         for suit in suits:
             for value in values:
-                self.deck_of_cards.append(Card(suit=suit, value=value))
+                if value in ["A", "J", "Q", "K"]:
+                    if value == "A":
+                        cost = 11
+                    else:
+                        cost = 10
+                else:
+                    cost = int(value)
+
+                self.deck_of_cards.append(Card(suit=suit, value=value, cost=cost))
         else:
             print("Deck created!")
 
