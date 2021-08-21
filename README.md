@@ -25,3 +25,7 @@ This will contain classes for each of the casino games.
 #### Casino
 
 This will contain a casino class to use all of the classes above
+
+## How to run
+
+In the casino directory, run casino.py
