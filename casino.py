@@ -2,8 +2,8 @@
 Author: Oscar Miles\n
 Date: 21/08/21
 """
-from Accounts.accounts import Accounts
-from Games.blackjack import Blackjack
+from accounts import Accounts
+from blackjack import Blackjack
 
 class Casino:
     """
@@ -59,5 +59,3 @@ class Casino:
 if __name__ == "__main__":
     cas = Casino()
     cas.run()
-
-
