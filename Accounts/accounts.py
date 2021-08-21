@@ -29,7 +29,7 @@ class Accounts:
     logout():
         Loop through the file and update the users balance to reflect the money made or lost in the casino, then exit.
     """
-    file = "accounts.txt"
+    file = "/Users/oscarmiles/Desktop/Coding/Python/GitProjects/OMCasino/Accounts/accounts.txt"
 
     @staticmethod
     def ask_username():
@@ -160,14 +160,13 @@ class Accounts:
         userPass = self.ask_password()
         userBala = 1000.00
 
-
         # if information matches - start again
         if self.match(username=userName, password=userPass):
             print("Try different information!")
             self.sign_up()
         else:
             with open(self.file, "a") as file:
-                file.write(f"{userName}|{userPass}|{userBala}")
+                file.write(f"{userName}|{userPass}|{userBala}\n")
 
             print(f"{userName}'s account has been created!")
 
