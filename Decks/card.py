@@ -15,10 +15,13 @@ class Card:
         The suit of the card
     value : str
         The value of the card
+    cost : int
+        The points the card is worth
     """
-    def __init__(self, suit, value):
+    def __init__(self, suit, value, cost):
         self.suit = suit
         self.value = value
+        self.cost = cost
 
     def __repr__(self):
         """
