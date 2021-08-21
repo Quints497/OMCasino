@@ -2,8 +2,8 @@
 Author: Oscar Miles\n
 Date: 21/08/21
 """
-from accounts import Accounts
-from blackjack import Blackjack
+from src.accounts import Accounts
+from src.blackjack import Blackjack
 
 class Casino:
     """

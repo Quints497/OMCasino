@@ -4,28 +4,17 @@
 
 A Casino created in Python 3.7 with only card based casino games, such as, Blackjack & Baccarat
 
-## Whats in the project
+## What's in the project
 
-#### Accounts
-
-This will contain a text file with the account information for each user and also the account class to access the information
-
-#### Characters
-
-This will contain the classes for the player and the dealers
-
-#### Decks
-
-This will contain classes for each deck of cards that will be used in the casino.
-
-#### Games
-
-This will contain classes for each of the casino games. 
-
-#### Casino
-
-This will contain a casino class to use all of the classes above
+### src
+  - accounts.py - Used for sign up, login and logout
+  - accounts.txt - Stores all the user information
+  - blackjack.py - Contains the objects used in blackjack and the game of blackjack
+  - decks.py - Is the base class for all deck classes
+  - player.py - Is the base class for all player classes
+  - casino.py - Links the accounts and games sections so you have a fully functioning casino
 
 ## How to run
 
-In the casino directory, run casino.py
+1. Change the location of the file variable in 'accounts.py' to where your 'accounts.txt' is located on your system
+2. Run casino.py

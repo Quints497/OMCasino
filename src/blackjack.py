@@ -3,8 +3,8 @@ Author: Oscar Miles\n
 Date: 20/8/21
 """
 import time
-from player import Player
-from decks import Deck
+from src.player import Player
+from src.decks import Deck
 
 class BjPlayer(Player):
     """

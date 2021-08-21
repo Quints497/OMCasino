@@ -33,7 +33,7 @@ class Accounts:
         Loop through the file and update the users balance to reflect the money made or lost in the casino, then exit.
     """
     # change this to the path of where your 'account.txt' is stored
-    file = "/Users/oscarmiles/Desktop/Coding/Python/GitProjects/OMCasino/accounts.txt"
+    file = "/Users/oscarmiles/Desktop/Coding/Python/GitProjects/OMCasino/src/accounts.txt"
 
     @staticmethod
     def ask_username():
