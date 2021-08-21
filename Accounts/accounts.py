@@ -113,7 +113,7 @@ class Accounts:
                 userName, userPass, userBala = data.split("|")
                 # check if the user is in the file
                 if userName == username and userPass == password:
-                    return userBala
+                    return float(userBala)
                 else:
                     continue
 
@@ -211,7 +211,7 @@ class Accounts:
                 data = line.rstrip()
                 userName, userPass, userBala = data.split("|")
                 if userName == username and userPass == password:
-                    out_file.write(f"{userName}|{userPass}|{balance}")
+                    out_file.write(f"{userName}|{userPass}|{balance}\n")
                 else:
                     out_file.write(line)
 

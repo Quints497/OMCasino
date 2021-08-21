@@ -65,16 +65,13 @@ class Blackjack:
         total : int
             The total value of the cards in the hand
         """
+
         total = 0
         for card in player.hand:
-            if card.value == "A":
-                if total < 21:
-                    card.value = "11"
-                else:
-                    card.value = "1"
-            if card.value in ["J", "Q", "K"]:
-                card.value = "10"
-            total += int(card.value)
+            if card.value == "A" and total + card.cost > 21:
+                card.cost = 1
+                total += card.cost
+            total += card.cost
         return total
 
     @staticmethod
@@ -99,7 +96,7 @@ class Blackjack:
         """
         print(f"{self.user.username} balance: £{self.user.balance}\n\n")
         while True:
-            bet = float(input(f"{self.user.username} bet amount: £").strip().lower())
+            bet = float(input(f"{self.user.username} bet amount: £"))
 
             if bet:
                 if self.user.balance - bet >= 0:
@@ -145,30 +142,29 @@ class Blackjack:
             # calculate the hand total
             current = self.total_value(self.user)
 
-            # check if the user went bust
-            if current > 21:
-                print(f"{self.user.username} has bust with {current}")
-                break
-            else:
-                # show the players hand
-                self.show_a_hand(self.user)
+            # show the players hand
+            self.show_a_hand(self.user)
 
-                # ask if the user wants to hit or stand
-                cmd = input(f"Current total: {current} - hit or stand: ").strip().lower()
+            # ask if the user wants to hit or stand
+            cmd = input(f"Current total: {current} - hit or stand: ").strip().lower()
 
-                # check user entered something
-                if cmd:
-                    if cmd == "hit":
-                        self.deal(player=self.user)
-                    elif cmd == "stand":
-                        print(f"{self.user.username} stood on {current}")
-                        break
-                    else:
-                        print("Enter hit or stand!")
-                        continue
+            # check user entered something
+            if cmd:
+                if cmd == "hit":
+                    self.deal(player=self.user)
+                    if self.total_value(self.user) > 21:
+                        print(f"{self.user.username} went bust with {self.total_value(self.user)}")
+                elif cmd == "stand":
+                    print(f"{self.user.username} stood on {current}")
+                    break
                 else:
-                    print("Enter hit or stand! Not nothing")
+                    print("Enter hit or stand!")
                     continue
+            else:
+                print("Enter hit or stand! Not nothing")
+                continue
+
+        self.show_a_hand(self.dealer)
 
     def dealer_plays(self):
         """
@@ -277,7 +273,7 @@ class Blackjack:
             if self.round == 1 or self.round == 15:
                 print("Shuffling!")
                 self.deck.shuffle_deck()
-                time.sleep(2)
+                time.sleep(0.5)
                 print("Shuffled!")
                 if self.round == 15:
                     self.round = 0
@@ -329,3 +325,9 @@ class Blackjack:
                 else:
                     print("Please enter at least something!")
                     continue
+
+
+if __name__ == "__main__":
+    black = Blackjack("oscar", "miles", 1000.00)
+
+    black.run()

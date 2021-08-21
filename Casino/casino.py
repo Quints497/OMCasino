@@ -3,6 +3,7 @@ Author: Oscar Miles\n
 Date: 21/08/21
 """
 from Accounts.accounts import Accounts
+from Games.blackjack import Blackjack
 
 class Casino:
     """
@@ -19,15 +20,13 @@ class Casino:
         # ask if the user is new or not
         while True:
             new = input("Are you a new user: ").strip().lower()
-            signed = False
 
             if new:
                 if new == "yes":
                     # setup the users account
                     self.account.sign_up()
                     print("\nNow login!\n")
-                    signed = True
-                elif new == "no" or signed:
+                elif new == "no":
                     # sign the user in
                     return self.account.login()
                 else:
@@ -38,11 +37,27 @@ class Casino:
                 continue
 
     def run(self):
-        pass
+        # sign up / login
+        username, password, initial_balance = self.new_user()
+
+        while True:
+            game_mode = input("[1 : Blackjack]: ").strip().lower()
+
+            if game_mode:
+                if game_mode == "1":
+                    blackjack = Blackjack(username=username, password=password, balance=initial_balance)
+                    after_balance = blackjack.run()
+                    break
+                else:
+                    print("No other games at the moment!")
+            else:
+                print("Please enter a value!")
+
+        self.account.logout(username=username, password=password, balance=after_balance)
 
 
 if __name__ == "__main__":
     cas = Casino()
-    cas.new_user()
+    cas.run()
 
 
