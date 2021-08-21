@@ -70,7 +70,6 @@ class Blackjack:
         for card in player.hand:
             if card.value == "A" and total + card.cost > 21:
                 card.cost = 1
-                total += card.cost
             total += card.cost
         return total
 
@@ -154,6 +153,7 @@ class Blackjack:
                     self.deal(player=self.user)
                     if self.total_value(self.user) > 21:
                         print(f"{self.user.username} went bust with {self.total_value(self.user)}")
+                        break
                 elif cmd == "stand":
                     print(f"{self.user.username} stood on {current}")
                     break
@@ -213,10 +213,10 @@ class Blackjack:
                     return -1
             # dealer went bust
             else:
-                print(f"{self.dealer.username}'s {dealers_score} is over 21!")
+                print(f"{self.dealer.username}'s {dealers_score} is over 21! Bust!\n")
                 return 1
         else:
-            print(f"{self.user.username}'s {users_score} is over 21!")
+            print(f"{self.user.username}'s {users_score} is over 21! Bust!\n")
             return -1
 
     def end_of_round(self, condition, bet):
@@ -325,9 +325,3 @@ class Blackjack:
                 else:
                     print("Please enter at least something!")
                     continue
-
-
-if __name__ == "__main__":
-    black = Blackjack("oscar", "miles", 1000.00)
-
-    black.run()

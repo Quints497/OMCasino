@@ -1,2 +1,2 @@
-oscar|miles|2000.0
+oscar|miles|1870.0
 john|smith|1000.0
