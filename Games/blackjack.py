@@ -99,8 +99,8 @@ class Blackjack:
             bet = float(input(f"{self.user.username} bet amount: £"))
 
             if bet:
-                if self.user.get_balance() - bet >= 0:
-                    self.user.set_balance(self.user.get_balance() - bet)
+                if self.user.balance - bet >= 0:
+                    self.user.balance -= bet
                     break
                 else:
                     print(f"Insufficient funds, your balance: £{self.user.balance}")
@@ -325,6 +325,7 @@ class Blackjack:
                 else:
                     print("Please enter at least something!")
                     continue
+
 
 if __name__ == "__main__":
     black = Blackjack("oscar", "miles", 1000.00)
