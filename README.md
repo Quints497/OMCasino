@@ -2,7 +2,7 @@
 
 ## What is it
 
-A Casino created in Python 3.7 with only card based casino games, such as, Blackjack & Baccarat
+A Casino created in Python 3.7 with only card based casino games, such as, Blackjack
 
 ## What's in the project
 
